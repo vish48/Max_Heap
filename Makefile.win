@@ -1,0 +1,43 @@
+# Project: 2Day-Assessment
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = BinarySearchTree.o HashTable.o MaxHeap.o MaxPriorityQueue.o Queue.o Main.o
+LINKOBJ  = BinarySearchTree.o HashTable.o MaxHeap.o MaxPriorityQueue.o Queue.o Main.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 2Day-Assessment.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+BinarySearchTree.o: BinarySearchTree.cpp
+	$(CPP) -c BinarySearchTree.cpp -o BinarySearchTree.o $(CXXFLAGS)
+
+HashTable.o: HashTable.cpp
+	$(CPP) -c HashTable.cpp -o HashTable.o $(CXXFLAGS)
+
+MaxHeap.o: MaxHeap.cpp
+	$(CPP) -c MaxHeap.cpp -o MaxHeap.o $(CXXFLAGS)
+
+MaxPriorityQueue.o: MaxPriorityQueue.cpp
+	$(CPP) -c MaxPriorityQueue.cpp -o MaxPriorityQueue.o $(CXXFLAGS)
+
+Queue.o: Queue.cpp
+	$(CPP) -c Queue.cpp -o Queue.o $(CXXFLAGS)
+
+Main.o: Main.cpp
+	$(CPP) -c Main.cpp -o Main.o $(CXXFLAGS)
