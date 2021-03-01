@@ -4,7 +4,8 @@
 
 using namespace std;
 
-
+//Returns the address of the node created
+//Create a node in the bst and stores the newPatient struct in the node.
 BTNode * createBTNode (Patient newPatient) {
 	BTNode * newNode;
 	
@@ -19,7 +20,9 @@ BTNode * createBTNode (Patient newPatient) {
 }
 
 
-
+//Returns True if patientID is present in the bst and false otherwise
+//Accepts BTNode * root -> the address of the binary search tree
+//Accepts int patientID -> an integer value that represents a patientID
 bool containsBST (BTNode * root, int patientID) 
 {
 	
@@ -27,7 +30,6 @@ bool containsBST (BTNode * root, int patientID)
 	
 	if (root == NULL)
 	{
-//		cout<<"BST IS EMPTY";
 		return false;
 	}
 	
@@ -43,26 +45,24 @@ bool containsBST (BTNode * root, int patientID)
 }
 
 
-
+//Returns the node of the bst containing patientID if it is present and NULL otherwise.
+//Accepts BTNode * root -> the address of the bst
+//Accepts int patientID -> integer value of the patientID
 BTNode * getBST (BTNode * root, int patientID) 
 {
 	
-	// Write code here to find and return the node in the BST containing the key, patientID.
-	//	HINT: It is similar to containsBST.
-	
 	bool found=containsBST(root,patientID);
-//	cout<<"\nGOT OUT OF CONTAINS ";
+
 	
 	if(found==false)
 	{
 		cout<<"\nBST EMPTY";
-//		return NULL;
 	}
 	BTNode * bp=NULL;
 	
 	if (root->patient.patientID == patientID)
 	{
-//		cout<<"\nI GOT SOMETHING";
+
 		bp=root;
 		return bp;
 	}
@@ -74,17 +74,16 @@ BTNode * getBST (BTNode * root, int patientID)
 }
 
 
-
+//Returns the address of the node inserted
+//Inserts the newPatient struct in the bst. The key is patientID
 BTNode * insertBST (BTNode * root, Patient newPatient) {
 	
 	BTNode * newNode;
 	BTNode * curr;
 	
 	newNode = createBTNode (newPatient);
-//	cout<<"\nNEWNODE IS "<<newNode->patient.patientID<<"  "<<newNode->patient.patientName<<"  "<<newNode->patient.phone<<endl;
 	if (root == NULL)
 	{
-//		cout<<"I COMPLETED IT";
 		return newNode;
 	}
 	
@@ -96,7 +95,6 @@ BTNode * insertBST (BTNode * root, Patient newPatient) {
 			if (curr->left == NULL) {
 				curr->left = newNode;
 				newNode->parent = curr;
-//				cout<<"I COMPLETED IT";
 				return root;
 			}
 			curr = curr->left;
@@ -104,8 +102,7 @@ BTNode * insertBST (BTNode * root, Patient newPatient) {
 		else {
 			if (curr->right == NULL) {
 				curr->right = newNode;
-				newNode->parent = curr;	
-//				cout<<"I COMPLETED IT";			
+				newNode->parent = curr;		
 				return root;
 			}
 			curr = curr->right;
@@ -115,6 +112,8 @@ BTNode * insertBST (BTNode * root, Patient newPatient) {
 }
 
 
+//Returns the address of the inorder successor of the node, returns NULL if itdoes not exist
+//Accepts the address of the node to search for in the bst
 
 BTNode * inOrderSuccessor (BTNode * node) {
 
@@ -135,7 +134,8 @@ BTNode * inOrderSuccessor (BTNode * node) {
 }
 
 
-
+//Returns the address of the node in the bst with the smallest key
+//Accepts the address of the root of the bst
 BTNode * treeMinimum (BTNode * root) {
 	if (root == NULL)
 		return NULL;
