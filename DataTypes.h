@@ -2,9 +2,9 @@
 #define _DATATYPES_H
 
 #include <iostream>
-   using namespace std;
+using namespace std;
 
-
+//Definitions of structs that will be used in the .cpp files
 struct Condition {
 	string conditionName;
 	int priority;

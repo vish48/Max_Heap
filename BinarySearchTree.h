@@ -1,6 +1,7 @@
 #ifndef _BINARYSEARCHTREE_H
 #define _BINARYSEARCHTREE_H
 
+//Function definitions for BinarySearchTree 
 BTNode * createBTNode (Patient newPatient);
 bool containsBST (BTNode * root, int patientID);
 BTNode * getBST (BTNode * root, int patientID);
