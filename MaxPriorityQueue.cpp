@@ -4,37 +4,12 @@
 #include "MaxPriorityQueue.h"
 using namespace std;
 
-
+//Inserts newIncident in the priority queue stored in array A based on its priority
 void maxHeapInsert(Incident A[], int heapSize, Incident newIncident) 
 {
 
 	// Write code to insert newIncident in the max priority queue.
 	// It is stored in array A based on its priority.
-/*	heapSize++;
-	
-	if(A[1].priority==0)			//if heap is empty then insert info
-	{								
-		A[1].patientID=newIncident.patientID;
-		A[1].condition=newIncident.condition;
-		A[1].priority=newIncident.priority;
-		//cout<<"\nSUCCESSFUL!";
-	}
-	else
-	{	
-		int index=1;-
-		
-		while(A[index].priority !=0)			//finding next empty location in array
-			index++;
-												//inserting into next empty location
-		A[index].patientID=newIncident.patientID;
-		A[index].condition=newIncident.condition;
-		A[index].priority=newIncident.priority;
-		
-		
-		maxHeapify(A,heapSize,index);		//calling maxheapify function to maintain priority queue properties
-	//	cout<<"\nSUCCESSFUL!";
-	}			
-	*/
 	
 	heapSize++;
 	A[heapSize].patientID=newIncident.patientID;
@@ -46,7 +21,7 @@ void maxHeapInsert(Incident A[], int heapSize, Incident newIncident)
 }
 
 
-
+//Returns the highest priority element in the max priority queue stored in array A
 Incident heapMaximum (Incident A[]) 
 {
 	// Write code to find and return the highest priority element 
@@ -60,7 +35,7 @@ Incident heapMaximum (Incident A[])
 }
 
 
-
+//Removes and returns the highest priority element in the max priority queue stored in array A
 Incident heapExtractMax (Incident A[], int heapSize) 
 {
 	// Write code to remove and return the highest priority element 
@@ -71,14 +46,12 @@ Incident heapExtractMax (Incident A[], int heapSize)
 	
 	int last=0,a=0,b=heapSize, prev=0;													//getting last element in priority queue
 	last= A[heapSize].priority;										
-//	cout<<"\nLAST IS "<<last<<" for patient "<<A[heapSize].patientID;
 	
 	Incident temp;												//swapping last and highest priority element
 	temp.patientID=max.patientID;
 	temp.condition=max.condition;
 	temp.priority=max.priority;
 	
-//	cout<<"\nHEAPSIZE ELEMENT "<<heapSize<<"  "<<A[heapSize].priority<<" with ID"<<A[heapSize].patientID;
 	max.patientID=A[heapSize].patientID;
 	max.condition=A[heapSize].condition;
 	max.priority=A[heapSize].priority;
@@ -90,19 +63,16 @@ Incident heapExtractMax (Incident A[], int heapSize)
 	for(a=2;a<=heapSize;a++)
 	{
 		prev=a-1;
-//		b=a+1;
+
 		
 		A[prev].patientID=A[a].patientID;
 		A[prev].condition=A[a].condition;
 		A[prev].priority=A[a].priority;
-		
-//		A[a].patientID=A[b].patientID;
-//		A[a].condition=A[b].condition;
-//		A[a].priority=A[b].priority;
+
 		
 	}
 		
-//	cout<<"\nA IS "<< a<<"  Deleting loc a";
+
 	A[heapSize].patientID=0;
 	A[heapSize].condition=" ";
 	A[heapSize].priority=0;
@@ -111,9 +81,7 @@ Incident heapExtractMax (Incident A[], int heapSize)
 	A[a].condition=" ";
 	A[a].priority=0;
 		
-//	max.patientID=0;
-//	max.condition=" ";
-//	max.priority=0;	
+
 		
 	heapSize--;	
 	maxHeapify(A,heapSize,1);									//heapifying the array
@@ -121,21 +89,14 @@ Incident heapExtractMax (Incident A[], int heapSize)
 }
 
 
-
+//Increases the value of the element i's priority to the new value, newPriority, 
+//where newPriority >= element i's current priority
 void heapIncreaseKey(Incident A[], int i, int newPriority) 
 {
 
 	// Write code to increase the value of element i's priority to the 
 	// new value, newPriority, where newPriority must be greater than
 	// element i's current priority.
-	
-/*	A[i].priority=newPriority;
-	maxHeapify(A,heapSize,1);
-	
-	return;
-*/
-  
-
 	A[i].priority=newPriority;
 	Incident temp;
 	int j=0;
@@ -146,7 +107,6 @@ void heapIncreaseKey(Incident A[], int i, int newPriority)
 	
 		if(A[i].priority>A[j].priority)
 		{
-	//		cout<<"\nI'M INCREASING";
 			temp.patientID=A[i].patientID;
 			temp.condition=A[i].condition;
 			temp.priority=A[i].priority;
@@ -161,8 +121,7 @@ void heapIncreaseKey(Incident A[], int i, int newPriority)
 		}
 		j--;
 		i--;
-	//	i=j;
-	//	j=j/2;
+
 	}
 }
 
