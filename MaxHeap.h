@@ -1,6 +1,7 @@
 #ifndef _MAXHEAP_H
 #define _MAXHEAP_H
 
+//Declarations of header file functions for a MaxHeap
 int parent (int i);
 int leftChild (int i);
 int rightChild (int i);
