@@ -3,26 +3,26 @@
 #include "MaxHeap.h"
 using namespace std;
 
-#Returns the index of the parent node of node i in the heap
+//Returns the index of the parent node of node i in the heap
 int parent(int i) {
 	return (i/2);
 }
 
 
-#Returns the index of the left child of node i in the heap
+//Returns the index of the left child of node i in the heap
 int leftChild(int i) {
 	return (2 * i);
 }
 
 
-#Returns the index of the right child of node i in the heap
+//Returns the index of the right child of node i in the heap
 int rightChild (int i) {
 	return (2 * i) + 1;
 }
 
 
-#Assuming that the left and right subtrees of node i are max heaps
-#Maitains the max heap property starting at node i
+//Assuming that the left and right subtrees of node i are max heaps
+//Maitains the max heap property starting at node i
 void maxHeapify (Incident A[], int heapSize, int i) {
 	int left, right, largest;
 	
@@ -46,8 +46,8 @@ void maxHeapify (Incident A[], int heapSize, int i) {
 }
 
 
-#Given an array A of type Incident where lengthA is the amount of elements in A,
-#Converts A into a max heap baed on the priority of each patient
+//Given an array A of type Incident where lengthA is the amount of elements in A,
+//Converts A into a max heap baed on the priority of each patient
 void buildMaxHeap(Incident A[], int lengthA) {
 
 	int heapSize, i;
@@ -59,8 +59,8 @@ void buildMaxHeap(Incident A[], int lengthA) {
 }
 
 
-#Givn an array A of type Incident and lengthA, which is the amount of elements in A,
-#Sorts the elements in A based on the priority of the incidents.
+//Givn an array A of type Incident and lengthA, which is the amount of elements in A,
+//Sorts the elements in A based on the priority of the incidents.
 void heapSort (Incident A[], int lengthA) {
 	
 	int heapSize, i;
